@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<style>
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+</head>
+<body>
+<div class="w3-container w3-teal">
+  <h1>Search</h1>
+</div>
+
+<form action="/search" method="post" encType="multipart/form-data"
+      class="w3-container" style="width:100%">
+<p>
+  <label class="w3-label w3-validate" style="display: block;
+width: 100px;">Name: </label><input type='text' name='name' id='nameField'>
+  <input type="checkbox" name="isNameNull">Ignore<br><br>
+  <label class="w3-label w3-validate" style="display: block;
+width: 100px;">Cuisine: </label><input type='text' name='cuisine' id='cuisineField'>
+  <input type="checkbox" name="isCuisineNull">Ignore<br><br>
+  <label class="w3-label w3-validate" style="display: block;
+width: 100px;">Borough: </label><input type='text' name='borough' id='boroughField'>
+  <input type="checkbox" name="isBoroughNull">Ignore<br><br>
+</p>
+
+<button class="w3-btn w3-section w3-teal w3-ripple"> Search </button></p>
+  <!--<input type='submit' value='Search' />-->
+
+</form>
+</body>
+</html>
+

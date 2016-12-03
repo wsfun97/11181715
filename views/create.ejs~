@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<title><%=c.name%></title>
+<style>
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+<script>
+function goBack() {window.history.back();}
+</script>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+</head>
+<body>
+<div class="w3-container w3-teal">
+  <h1><%= c.name %></h1>
+</div>
+<% if (c.data != null && c.data!='') { %>
+<img src="data:<%=c.mimetype%>;base64,<%=c.data%>" class="w3-image w3-border w3-padding" style="width:100%">
+<% } %>
+<div class="w3-container">
+<p>
+<label class="w3-label w3-validate">Borough: </label><%= c.borough %></p>
+<label class="w3-label w3-validate">Cuisine: </label><%= c.cuisine %></p>
+<label class="w3-label w3-validate">Street: </label><%= c.street %></p>
+<label class="w3-label w3-validate">Building: </label><%= c.building %></p>
+<label class="w3-label w3-validate">Zipcode: </label><%= c.zipcode %></p>
+<label class="w3-label w3-validate">GPS: </label>[<%= c.lon %>, <%=c.lat%>]</p>
+<label class="w3-label w3-validate">Rating: </label>
+<ol>
+<% if(c.rating!=null){ %>
+<% c.rating.forEach(function(restaurantRating){ %>
+<li><%=restaurantRating.score%> (<%=restaurantRating.user%>)</li>
+<% }); %>
+<% } %>
+</ol>
+</p>
+
+<p>
+<label class="w3-label w3-validate">Created by: </label><%=c.creator%></p>
+<p>
+</div>
+
+<a href="/gmap?lat=<%=c.lat%>&lon=<%=c.lon%>&title=<%=c.name%>">Google Map</a>
+
+<div class="w3-container">
+<a href="/rate?_id=<%=c._id%>&name=<%=c.name%>" style="text-decoration: none">
+    <button class="w3-btn w3-section w3-teal w3-ripple">Rate</button>
+</a>
+<a href="/change?_id=<%=c._id%>" style="text-decoration: none">
+  <button class="w3-btn w3-section w3-teal w3-ripple">Edit</button>
+</a>
+<a href="/remove?_id=<%=c._id%>" style="text-decoration: none">
+  <button class="w3-btn w3-section w3-teal w3-ripple">Delete</button>
+</a>
+<button class="w3-btn w3-section w3-teal w3-ripple" onclick="goBack()">Go Back</button>
+<a href="/read" style="text-decoration: none">
+  <button class="w3-btn w3-section w3-teal w3-ripple">Home</button>
+</a>
+</div>
+
+</body>
+</html>
+

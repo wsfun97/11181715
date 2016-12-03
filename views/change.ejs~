@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<title>Update Restaurant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<div class="w3-container w3-teal">
+  <h1>Update Restaurant</h1>
+</div>
+
+
+<form action="/change" method="post" encType="multipart/form-data"
+      class="w3-container" style="width:100%">
+  <p>
+  <input type="hidden" name="_id" value="<%=r._id %>" required>
+  <input required name="name" class="w3-input" type="text" required value=<%=r.name%>>
+  <label class="w3-label w3-validate">Name</label></p>
+  <p>
+  <input name="borough"class="w3-input" type="text" value=<%=r.borough%> >
+  <label class="w3-label w3-validate">Borough</label></p>
+  <p>
+  <input name="cuisine"class="w3-input" type="text" value=<%=r.cuisine%> >
+  <label class="w3-label w3-validate">Cuisine</label></p>
+  <p>
+  <input name="street"class="w3-input" type="text" value=<%=r.street%> >
+  <label class="w3-label w3-validate">Street</label></p>
+  <p>
+  <input name="building"class="w3-input" type="text" value=<%=r.building%> >
+  <label class="w3-label w3-validate">Building</label></p>
+  <p>
+  <input name="zipcode"class="w3-input" type="text" value=<%=r.zipcode%> >
+  <label class="w3-label w3-validate">Zipcode</label></p>
+  <p>
+  <p>
+  <input name="lon"class="w3-input" type="text" value=<%=r.lon%> >
+  <label class="w3-label w3-validate">GPS Coordinates (lon.)</label></p>
+  <p>
+  <input name="lat"class="w3-input" type="text" value=<%=r.lat%> >
+  <label class="w3-label w3-validate">GPS Coordinates (lat.)</label></p>
+  <p>
+  <input name="sampleFile" class="w3-input" type="file" >
+  <label class="w3-label w3-validate">Photo</label>
+  <input type="checkbox" name="isPhotoNull">Ignore<br><br>
+  </p>
+  <p>
+  <button class="w3-btn w3-section w3-teal w3-ripple"> Change </button></p>
+</form>
+
+</body>
+</html>
